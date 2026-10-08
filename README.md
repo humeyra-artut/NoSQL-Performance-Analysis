@@ -41,6 +41,7 @@ Her kayıt aşağıdaki alanlardan oluşmaktadır:
   "name": "Student Name",
   "department": "Computer Engineering"
 }
+```
 Öğrenci numarası kayıtların sorgulanmasında kullanılmaktadır.
 🏗️ Proje Yapısı
 src/
@@ -122,10 +123,9 @@ URL	Test edilecek REST endpoint'i
 
 Bu yapı ile:
 10 istemci × 100 istek = 1000 toplam istek
-
 gerçekleştirilir.
 ⏱️ Çalışma Süresi Testi
-Endpoint'lerin çalışma sürelerini karşılaştırmak için eş zamanlı curl istekleri de kullanılabilir.
+Endpoint'lerin çalışma sürelerini karşılaştırmak için eş zamanlı curl istekleri kullanılabilir.
 Redis
 time seq 1 100 | xargs -n1 -P10 -I{} \
 curl -s "http://localhost:8080/nosql-lab-rd/student_no=2025000001" \
@@ -142,7 +142,7 @@ curl -s "http://localhost:8080/nosql-lab-mon/student_no=2025000001" \
 > ~/mongodb-time.results
 
 📈 Performans Sonuçları
-Performans testlerinin gerçek sonuçları aşağıdaki başlıklar altında karşılaştırılabilir:
+Performans testlerinde aşağıdaki metrikler karşılaştırılabilir:
 - Transactions
 - Availability
 - Elapsed time
@@ -153,7 +153,7 @@ Performans testlerinin gerçek sonuçları aşağıdaki başlıklar altında kar
 - Concurrency
 - Successful transactions
 - Failed transactions
-Not: Bu bölümde yalnızca gerçek test sonuçları kullanılmalıdır. Örnek veya varsayımsal değerler gerçek performans sonucu olarak gösterilmemiştir.
+Not: Gerçek test sonuçları elde edildiğinde bu bölüme eklenmelidir. Örnek veya varsayımsal değerler gerçek performans sonucu olarak gösterilmemiştir.
 
 🚀 Kurulum
 Projeyi çalıştırmak için:
@@ -166,12 +166,14 @@ Projeyi çalıştırmak için:
 7. Uygulamayı çalıştırın.
 8. REST endpoint'lerini test edin.
 🔎 Test
-Endpoint'ler çalıştırıldıktan sonra Redis, Hazelcast ve MongoDB için ayrı ayrı istek gönderilerek sonuçlar kontrol edilebilir.
-Örnek:
+Endpoint'ler çalıştırıldıktan sonra Redis, Hazelcast ve MongoDB için ayrı ayrı istek gönderilebilir.
+Redis
 http://localhost:8080/nosql-lab-rd/student_no=2025000001
 
+Hazelcast
 http://localhost:8080/nosql-lab-hz/student_no=2025000001
 
+MongoDB
 http://localhost:8080/nosql-lab-mon/student_no=2025000001
 
 💡 Kazanımlar
@@ -194,5 +196,6 @@ GitHub
 📌 Proje Durumu
 Bu proje eğitim ve uygulama amacıyla geliştirilmiştir. NoSQL veri tabanları ve performans karşılaştırması üzerine çalışmayı içermektedir.
 
-Bunu **tek parça halinde README'ye yapıştır**. Sonra **Commit changes** yap.  
-Bu şekilde **MongoDB, Redis ve Hazelcast'in üçü de README'de açıkça görünecek.**
+**Önemli:** En sondaki ` ``` ` işareti de README'nin içinde olacak. Onu da kopyala.
+
+Sonra **Commit changes** yap.
